@@ -21,7 +21,7 @@ const terra = new LCDClient({
  });
 
 // get the current balance of `terra1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v`
-const balance = terra.bank.balance('terra1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v')
+const balance = localterra.bank.balance('terra1anncun3mf3grrh7w2ulzvaluuhthx6fm6mshhj')
 .then(result => {
   console.log(`balance: ${result}`);
 });;
