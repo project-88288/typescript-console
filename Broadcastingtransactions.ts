@@ -3,24 +3,27 @@ import { LCDClient, MsgSend, MnemonicKey } from '@terra-money/terra.js';
 // create a key out of a mnemonic
 const mk = new MnemonicKey({
   mnemonic:
-    'notice oak worry limit wrap speak medal online prefer cluster roof addict wrist behave treat actual wasp year salad speed social layer crew genius',
+    'satisfy adjust timber high purchase tuition stool faith fine install that you unaware feed domain license impose boss human eager hat rent enjoy dawn',
 });
 
-// connect to bombay testnet
-const terra = new LCDClient({
+// connect to pisco testnet
+const pisco = new LCDClient({
   URL: 'https://pisco-lcd.terra.dev',
   chainID: 'pisco-1',
+  isClassic: false  // if it is unset, LCDClient assumes the flag is false.
 });
 
 // To use LocalTerra
-// const terra = new LCDClient({
-//   URL: 'http://localhost:1317',
-//   chainID: 'localterra'
-// });
+ const localterra = new LCDClient({
+   URL: 'http://localhost:1317',
+   chainID: 'localterra'
+ });
 
 // a wallet can be created out of any key
 // wallets abstract transaction building
-const wallet = terra.wallet(mk);
+const wallet = pisco.wallet(mk);
+
+console.log(wallet);
 
 // create a simple message that moves coin balances
 const send = new MsgSend(
@@ -29,12 +32,14 @@ const send = new MsgSend(
   { uluna: 1200000}
 );
 
+console.log("test from terra.js!");
+
 wallet
   .createAndSignTx({
     msgs: [send],
     memo: 'test from terra.js!',
   })
-  .then(tx => terra.tx.broadcast(tx))
+  .then(tx => pisco.tx.broadcast(tx))
   .then(result => {
     console.log(`TX hash: ${result.txhash}`);
   });
