@@ -1,0 +1,22 @@
+{
+  "name": "my-terra-sdk",
+  "version": "1.0.0",
+  "description": "mytest terra.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/ts-node/dist/bin.js index.ts",
+    "getblock": "./node_modules/ts-node/dist/bin.js Gettingblockchaindata.ts",
+    "sendluna": "./node_modules/ts-node/dist/bin.js Broadcastingtransactions.ts"
+  },
+  "author": "chaiya",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "@terra-money/terra.js": "^3.1.7",
+    "axios": "^1.2.1",
+    "ts-node": "^10.9.1"
+  }
+}
